@@ -136,7 +136,7 @@ const PrediccionModelo = () => {
           rpm_motor: parsed.rpm_motor || "",
           velocidad_avance: parsed.velocidad_avance || "",
           carga_trabajo: parsed.carga_trabajo || "",
-          sensor_fugas: parsed.sensor_fugas || "",
+          sensor_fugas: parsed.sensor_fugas ?? "",
           sensor_ruido: parsed.sensor_ruido || "",
           codigo_error: parsed.codigo_error || "",
           modo_operacion: parsed.modo_operacion || "",
@@ -230,7 +230,7 @@ const PrediccionModelo = () => {
         condiciones_terreno
       );
 
-      if (result && result["status"]=="success") {
+      if (result && result["status"] === "success") {
         console.log(result);
         localStorage.setItem("resultado_prediccion", JSON.stringify(result));
         console.log("despues del localstorage");
@@ -253,7 +253,6 @@ const PrediccionModelo = () => {
       {error && <p className="mantenimiento-error">{error}</p>}
 
       <form className="mantenimiento-form" onSubmit={handleSubmit}>
-        {/* Selector de maquinaria */}
         <label htmlFor="maquinaria">Selecciona una maquinaria:</label>
         <select
           id="maquinaria"
@@ -275,7 +274,7 @@ const PrediccionModelo = () => {
             type="file"
             accept=".xlsx, .xls"
             onChange={handleExcelUpload}
-            ref={inputFileRef} // <-- aquí falta
+            ref={inputFileRef}
           />
         </div>
 

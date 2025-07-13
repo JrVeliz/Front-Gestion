@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginAuth } from "../../utils/services";
-import "../../Styles/Login.css"
+import "../../Styles/Login.css";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -18,7 +18,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const usuarioEncontrado = await loginAuth(formData.email,formData.password);
+      const usuarioEncontrado = await loginAuth(
+        formData.email,
+        formData.password
+      );
       console.log(usuarioEncontrado);
       if (usuarioEncontrado) {
         localStorage.setItem("currentUser", JSON.stringify(usuarioEncontrado));
@@ -59,7 +62,10 @@ const Login = () => {
         <button type="submit">Login</button>
       </div>
       <div className="mb-4">
-        <Link to="/signup" className="text-gray-500 hover:underline cursor-pointer">
+        <Link
+          to="/signup"
+          className="text-gray-500 hover:underline cursor-pointer"
+        >
           Registrar nueva cuenta
         </Link>
       </div>

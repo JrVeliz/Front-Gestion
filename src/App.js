@@ -1,6 +1,5 @@
 // import React, { useState } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
@@ -16,16 +15,9 @@ import HistorialPredicciones from "./Components/Home/HistorialPredicciones.jsx";
 import FormularioCorrectivo from "./Components/Home/FormularioCorrectivo.jsx";
 import ResultadoModelo from "./Components/Home/ResultadoModelo.jsx";
 
-const Home = () => <h1>Bienvenido al Home</h1>;
-const Maquinarias = () => <h1>Gestión de Maquinarias</h1>;
-const Mantenimientosw = () => <h1>Gestión de Mantenimientos</h1>;
-const Reportes = () => <h1>Reportes</h1>;
-const Login = () => <h1>Login</h1>;
-
 function App() {
   const Layout = ({ children }) => {
     const location = useLocation();
-    // Define en qué rutas quieres mostrar el menú
     const rutasConMenu = [
       "/home",
       "/registro-maquinaria",
@@ -86,8 +78,6 @@ function App() {
                   path="/crear-formulario"
                   element={<FormularioCorrectivo />}
                 />
-
-                {/* Redirigir cualquier otra ruta a home */}
                 <Route
                   path="*"
                   element={<Navigate to="/administrar-modelo" />}

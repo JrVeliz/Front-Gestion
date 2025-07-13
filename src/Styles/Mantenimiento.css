@@ -1,4 +1,3 @@
-/* Fondo centrado */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +9,6 @@ body {
   font-family: sans-serif;
 }
 
-/* Contenedor principal */
 .mantenimiento-container {
   background-color: #ffffff;
   padding: 2rem;
@@ -21,7 +19,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Título */
 .mantenimiento-title {
   text-align: center;
   color: #333;
@@ -29,20 +26,17 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* error */
 .mantenimiento-error {
   color: red;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-/* Formulario */
 .mantenimiento-form {
   display: flex;
   flex-direction: column;
 }
 
-/* Inputs generales */
 .mantenimiento-form > label,
 .mantenimiento-form > select,
 .mantenimiento-form > .form-group:nth-child(3) {
@@ -79,7 +73,6 @@ body {
   outline: none;
 }
 
-/* Botón */
 .mantenimiento-form button {
   margin-top: 2rem;
   padding: 12px;

@@ -100,35 +100,32 @@ export const AnalizarMaquinaria = async (
   condiciones_terreno
 ) => {
   try {
-    const response = await fetch(
-      "http://127.0.0.1:8000/api/predecir_falla",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id,
-          tipo_maquinaria,
-          tiempo_uso_horas,
-          temperatura_motor,
-          vibracion_general,
-          presion_hidraulica,
-          nivel_aceite_motor,
-          nivel_combustible,
-          rpm_motor,
-          velocidad_avance,
-          carga_trabajo,
-          sensor_fugas,
-          sensor_ruido,
-          codigo_error,
-          modo_operacion,
-          tiempo_operacion_sesion,
-          ultima_mantencion_dias,
-          condiciones_terreno,
-        }),
-      }
-    );
+    const response = await fetch("http://127.0.0.1:8000/api/predecir_falla", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+        tipo_maquinaria,
+        tiempo_uso_horas,
+        temperatura_motor,
+        vibracion_general,
+        presion_hidraulica,
+        nivel_aceite_motor,
+        nivel_combustible,
+        rpm_motor,
+        velocidad_avance,
+        carga_trabajo,
+        sensor_fugas,
+        sensor_ruido,
+        codigo_error,
+        modo_operacion,
+        tiempo_operacion_sesion,
+        ultima_mantencion_dias,
+        condiciones_terreno,
+      }),
+    });
 
     const data = await response.json();
     return data;
@@ -159,7 +156,7 @@ export const ObtenerPredicciones = async () => {
 };
 
 export const EntrenarModelo = async () => {
-    try {
+  try {
     const response = await fetch("http://127.0.0.1:8000/api/entrenar", {
       method: "POST",
       headers: {
@@ -180,14 +177,17 @@ export const EntrenarModelo = async () => {
 };
 
 export const RegistrarDatosEntrenamiento = async (data_nueva_entrnamiento) => {
-    try {
-    const response = await fetch("http://127.0.0.1:8000/api/registrar_casos_entrenamiento", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data_nueva_entrnamiento),
-    });
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/registrar_casos_entrenamiento",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data_nueva_entrnamiento),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Error al llamar al endpoint de entrenamiento");

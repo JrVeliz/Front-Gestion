@@ -41,7 +41,11 @@ const HistorialPredicciones = () => {
     fetchPredicciones();
   }, []);
 
-  const camposBusqueda = ["nombre_maquinaria", "resultado_prediccion", "modelo"];
+  const camposBusqueda = [
+    "nombre_maquinaria",
+    "resultado_prediccion",
+    "modelo",
+  ];
 
   const datosFiltrados = predicciones.filter((item) =>
     camposBusqueda.some((key) =>
@@ -69,8 +73,7 @@ const HistorialPredicciones = () => {
     orden.columna !== null
       ? ordenarDatos(datosFiltrados, orden.columna, orden.ascendente)
       : datosFiltrados;
-
-  // Cálculo para paginar datos
+  //Paginacion
   const totalPaginas = Math.ceil(datosOrdenados.length / FILAS_POR_PAGINA);
   const indiceInicio = (paginaActual - 1) * FILAS_POR_PAGINA;
   const indiceFin = indiceInicio + FILAS_POR_PAGINA;
@@ -82,7 +85,7 @@ const HistorialPredicciones = () => {
     } else {
       setOrden({ columna: columnaKey, ascendente: true });
     }
-    setPaginaActual(1); // Resetea a la página 1 al cambiar orden
+    setPaginaActual(1);
   };
 
   const manejarPaginaAnterior = () => {
@@ -103,7 +106,7 @@ const HistorialPredicciones = () => {
         value={busqueda}
         onChange={(e) => {
           setBusqueda(e.target.value);
-          setPaginaActual(1); // Reset paginación cuando filtras
+          setPaginaActual(1);
         }}
         className="buscador"
       />

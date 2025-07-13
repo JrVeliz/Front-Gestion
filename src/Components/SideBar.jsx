@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Importa el hook
+import { useNavigate } from "react-router-dom";
 import "../Styles/SideBar.css";
 
 const Sidebar = () => {
   const [active, setActive] = useState("home");
-  const navigate = useNavigate(); // 👈 Inicializa el hook
+  const navigate = useNavigate();
 
   const menuItems = [
     { id: "home", label: "Inicio", path: "/administrar-modelo" },

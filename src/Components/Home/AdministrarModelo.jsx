@@ -48,12 +48,10 @@ const etiquetasCampos = {
 };
 
 const RegistroMaquinaria = () => {
-  // data siempre con arreglo de registros
   const [modo, setModo] = useState("uno");
   const [data, setData] = useState({ registros: [{}] });
   const [error, setError] = useState("");
 
-  // Editar registro único (modo "uno") en el índice 0
   const handleChangeUnico = (campo, valor) => {
     setData((prev) => {
       const nuevosRegistros = [...prev.registros];
@@ -62,7 +60,7 @@ const RegistroMaquinaria = () => {
     });
   };
 
-  // Cargar Excel (modo "varios")
+  //Cargar Excel
   const handleExcelUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -78,7 +76,6 @@ const RegistroMaquinaria = () => {
     reader.readAsBinaryString(file);
   };
 
-  // Editar celda (modo varios)
   const handleEditarCelda = (index, campo, valor) => {
     setData((prev) => {
       const nuevosRegistros = [...prev.registros];
@@ -87,14 +84,12 @@ const RegistroMaquinaria = () => {
     });
   };
 
-  // Agregar fila vacía
   const agregarFila = () => {
     const filaVacia = {};
     campos.forEach((c) => (filaVacia[c] = ""));
     setData((prev) => ({ registros: [...prev.registros, filaVacia] }));
   };
 
-  // Eliminar fila
   const eliminarFila = (index) => {
     setData((prev) => {
       const nuevosRegistros = prev.registros.filter((_, i) => i !== index);
@@ -102,7 +97,7 @@ const RegistroMaquinaria = () => {
     });
   };
 
-  // Cambiar modo: si cambia a "uno", mantenemos solo primer registro o uno vacío si no hay
+  //Cambiar modo
   const cambiarModo = (nuevoModo) => {
     setError(""); // reset error
     setModo(nuevoModo);
@@ -118,7 +113,6 @@ const RegistroMaquinaria = () => {
     }
   };
 
-  // Ejemplo función enviar
   const handleEnviar = async (e) => {
     setError(""); // reset error
 
@@ -188,7 +182,7 @@ const RegistroMaquinaria = () => {
   };
 
   return (
-  <div className="adminmodelo-container">
+    <div className="adminmodelo-container">
       <h2 className="adminmodelo-title">Registro de Datos de Maquinaria</h2>
 
       <div className="adminmodelo-modo-selector">
@@ -223,7 +217,11 @@ const RegistroMaquinaria = () => {
 
       {modo === "varios" && (
         <div style={{ marginTop: "20px" }}>
-          <input type="file" accept=".xlsx, .xls" onChange={handleExcelUpload} />
+          <input
+            type="file"
+            accept=".xlsx, .xls"
+            onChange={handleExcelUpload}
+          />
 
           {data.registros.length > 0 && (
             <>
@@ -245,7 +243,9 @@ const RegistroMaquinaria = () => {
                             <input
                               type="text"
                               value={fila[campo] || ""}
-                              onChange={(e) => handleEditarCelda(i, campo, e.target.value)}
+                              onChange={(e) =>
+                                handleEditarCelda(i, campo, e.target.value)
+                              }
                             />
                           </td>
                         ))}

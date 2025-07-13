@@ -18,7 +18,6 @@ const RegistroMaquinarias = () => {
     setError("");
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { nombre, modelo, descripcion } = formData;
