@@ -1,0 +1,26 @@
+.signup-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Espaciado superior para el enlace */
+.link-login-wrapper {
+  margin-top: 2rem;
+}
+
+/* Estilo del enlace */
+#linklogin {
+  font-size: 0.95rem;
+  color: #6b7280;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#linklogin:hover {
+  text-decoration: underline;
+  color: #374151;
+}

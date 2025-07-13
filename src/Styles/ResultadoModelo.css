@@ -1,0 +1,90 @@
+/* Fondo de pantalla */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+.resultado-container {
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 85vw;          /* ocupa el 85% del ancho de la ventana */
+  max-width: 1200px;    /* no crece demasiado en pantallas grandes */
+  margin: 0 auto;       /* centrado horizontal */
+  box-sizing: border-box;
+}
+
+/* Título */
+.resultado-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #222;
+}
+
+.resultado-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #155724;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Secciones */
+.resultado-seccion {
+  margin-bottom: 2rem;
+}
+
+.resultado-seccion h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.resultado-seccion ul {
+  list-style: disc;
+  padding-left: 2rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.resultado-seccion li {
+  margin-bottom: 0.5rem;
+}
+
+/* Tabla */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.tabla-resultado {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.tabla-resultado th,
+.tabla-resultado td {
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.tabla-resultado th {
+  background-color: #f0f0f0;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Gráficos */
+.recharts-wrapper {
+  margin-top: 1rem;
+}

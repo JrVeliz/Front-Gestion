@@ -1,24 +1,103 @@
-import logo from './logo.svg';
-import './App.css';
+// import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
+import LoginComponent from "./Components/auth/Login.jsx";
+import Signup from "./Components/auth/Signup.jsx";
+import RegistroMaquinarias from "./Components/Home/RegistroMaquinarias.jsx";
+import Sidebar from "./Components/SideBar.jsx";
+import PrediccionModelo from "./Components/Home/PrediccionModelo.jsx";
+import AdministrarModelo from "./Components/Home/AdministrarModelo.jsx";
+import HistorialPredicciones from "./Components/Home/HistorialPredicciones.jsx";
+import FormularioCorrectivo from "./Components/Home/FormularioCorrectivo.jsx";
+import ResultadoModelo from "./Components/Home/ResultadoModelo.jsx";
+
+const Home = () => <h1>Bienvenido al Home</h1>;
+const Maquinarias = () => <h1>Gestión de Maquinarias</h1>;
+const Mantenimientosw = () => <h1>Gestión de Mantenimientos</h1>;
+const Reportes = () => <h1>Reportes</h1>;
+const Login = () => <h1>Login</h1>;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+  const Layout = ({ children }) => {
+    const location = useLocation();
+    // Define en qué rutas quieres mostrar el menú
+    const rutasConMenu = [
+      "/home",
+      "/registro-maquinaria",
+      "/prediccion-modelo",
+      "/reportes",
+      "/administrar-modelo",
+      "/historial-predicciones",
+      "/resultado-modelo",
+      "/crear-formulario",
+    ];
+
+    const mostrarMenu = rutasConMenu.includes(location.pathname);
+
+    return (
+      <div>
+        {mostrarMenu && <Sidebar />}
+        <div
+          style={{ marginLeft: mostrarMenu ? "220px" : "0", padding: "20px" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {children}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<LoginComponent />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/*"
+          element={
+            <Layout>
+              <Routes>
+                <Route
+                  path="administrar-modelo"
+                  element={<AdministrarModelo />}
+                />
+                <Route
+                  path="historial-predicciones"
+                  element={<HistorialPredicciones />}
+                />
+                <Route
+                  path="registro-maquinaria"
+                  element={<RegistroMaquinarias />}
+                />
+                <Route
+                  path="prediccion-modelo"
+                  element={<PrediccionModelo />}
+                />
+                <Route
+                  path="historial-prediccion"
+                  element={<PrediccionModelo />}
+                />
+                <Route path="/resultado-modelo" element={<ResultadoModelo />} />
+                <Route
+                  path="/crear-formulario"
+                  element={<FormularioCorrectivo />}
+                />
+
+                {/* Redirigir cualquier otra ruta a home */}
+                <Route
+                  path="*"
+                  element={<Navigate to="/administrar-modelo" />}
+                />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
