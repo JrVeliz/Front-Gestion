@@ -137,3 +137,66 @@ export const AnalizarMaquinaria = async (
     throw error;
   }
 };
+
+export const ObtenerPredicciones = async () => {
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/obtener-predicciones",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al obtener maquinarias:", error);
+    throw error;
+  }
+};
+
+export const EntrenarModelo = async () => {
+    try {
+    const response = await fetch("http://127.0.0.1:8000/api/entrenar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Error al llamar al endpoint de entrenamiento");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error en entrenarIA:", error);
+    throw error;
+  }
+};
+
+export const RegistrarDatosEntrenamiento = async (data_nueva_entrnamiento) => {
+    try {
+    const response = await fetch("http://127.0.0.1:8000/api/registrar_casos_entrenamiento", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data_nueva_entrnamiento),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error al llamar al endpoint de entrenamiento");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error en entrenarIA:", error);
+    throw error;
+  }
+};

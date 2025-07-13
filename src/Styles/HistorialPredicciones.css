@@ -1,0 +1,122 @@
+.historial-predicciones {
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 0 1rem;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.buscador {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #3498db;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.buscador:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.tabla-predicciones {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tabla-predicciones thead {
+  background-color: #2980b9;
+  color: white;
+}
+
+.tabla-predicciones th,
+.tabla-predicciones td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  user-select: none;
+}
+
+.tabla-predicciones tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+.columna-ordenable {
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.columna-ordenable:hover {
+  background-color: #3498db;
+}
+
+.icono-orden {
+  font-size: 0.8rem;
+  margin-left: 6px;
+  color: #f1c40f;
+}
+
+.sin-resultados {
+  text-align: center;
+  padding: 1rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.paginacion {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.btn-pagina {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-pagina:disabled {
+  background-color: #bdc3c7;
+  cursor: default;
+}
+
+.btn-pagina:hover:not(:disabled) {
+  background-color: #3498db;
+}
+
+.pagina-actual {
+  min-width: 130px;
+  text-align: center;
+}
