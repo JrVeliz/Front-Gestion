@@ -26,10 +26,8 @@ const Sidebar = () => {
   ];
 
     const handleLogout = () => {
-    // Eliminar usuario actual del localStorage
     localStorage.removeItem('currentUser');
     
-    // Redirigir al login
     navigate('/login');
   };
   
