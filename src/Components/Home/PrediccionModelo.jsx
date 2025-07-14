@@ -199,6 +199,7 @@ const PrediccionModelo = () => {
       !ultima_mantencion_dias ||
       !condiciones_terreno
     ) {
+      console.log(datosFormulario);
       setError("Todos los campos son obligatorios.");
       return;
     }
@@ -207,6 +208,7 @@ const PrediccionModelo = () => {
       setError("Debe seleccionar una maquinaria");
       return;
     }
+    console.log(datosFormulario);
 
     try {
       const result = await AnalizarMaquinaria(

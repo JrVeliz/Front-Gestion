@@ -34,3 +34,23 @@
 .menu-item.active {
   background-color: #005f73;
 }
+
+.logout-button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #005f73;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #94d2bd;
+  color: #000;
+}

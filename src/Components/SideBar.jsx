@@ -25,6 +25,14 @@ const Sidebar = () => {
     },
   ];
 
+    const handleLogout = () => {
+    // Eliminar usuario actual del localStorage
+    localStorage.removeItem('currentUser');
+    
+    // Redirigir al login
+    navigate('/login');
+  };
+  
   const handleClick = (item) => {
     setActive(item.id);
     navigate(item.path);
@@ -44,6 +52,9 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+  <button className="logout-button" onClick={handleLogout}>
+    Cerrar sesión
+  </button>
     </div>
   );
 };
